@@ -1,3 +1,5 @@
+// Package signature contains convenience method to help create various transaction 
+// signatures to be used on the Ellcrys platform.
 package signature
 
 import (

@@ -20,13 +20,13 @@ needs to be provided in the `X-Signature` header of the transfer request.
 ### Signature String Format
 
 The signature string contains all the information required to create a valid signature
-that can be correctly be reproduced by Ellcrys. A signature string is signed using the RSA private key
+that can be correctly reproduced by Ellcrys. The signature string is signed using the RSA private key
 associated with an address (aka *signer* or *signatory address*). A valid signature string is composed of the following format: 
 
 ```text
 RequestMethod 	+ '\n'   				// request method (use `POST` for transfers)
 RequestURI 		+ '\n'      			// URI encoded request uri (uri scheme and host not required)
-AddressID 		+ '\n'			        // address id or signer 
+AddressID 		+ '\n'			        // address id or signer id
 SeedIDs  		+ '\n'     		 		// comma separated list of seed ids
 Timestamp 		 						// unix time
 ```
