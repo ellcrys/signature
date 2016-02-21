@@ -48,17 +48,29 @@ Signature     							// signature create from signing the signature string with 
 The signature package provides the `GetSoleTransferSignatureString` method to help create a valid signature string.
 
 ```go
-import "github.com/ellcrys/signature"
-import "fmt"
+import (
+   "github.com/ellcrys/signature"
+   "fmt"
+)   
 
-sig := signature.GetSoleTransferSignatureString("42503020", []string{"46577","42654","599902"}, 1405882889)
-fmt.Println(sig)    
-// POST\n%2Fv1%2Fseeds%2Ftransfer\n42503020\n46577,42654,599902\n1405882889
+sigStr := signature.GetSoleTransferSignatureString("42503020", []string{"46577","42654","599902"}, 1405882889)
+fmt.Println(sigStr)    // POST\n%2Fv1%2Fseeds%2Ftransfer\n42503020\n46577,42654,599902\n1405882889
 ```
 
 ### Sign Sole Transfer
 
 Use the `SignSoleTransfer` method to construct a full signature string to be used as the `X-Signature` string. This method
-will create a valid signature string, sign the string and return a full signature. The format for a 
+will create a valid signature string, sign the string and return a full signature.
+
+```go
+import (
+   "github.com/ellcrys/signature"
+   "fmt"
+)   
+
+privKey := "-----BEGIN RSA PRIVATE KEY-----\nMIICXg...A/A==\n-----END RSA PRIVATE KEY-----\n"
+sig := signature.SignSoleTransfer("42503020", privKey, []string{"46577","42654","599902"})
+fmt.Println(sig)    // POST\n%2Fv1%2Fseeds%2Ftransfer\n42503020\n46577,42654,599902\n1405882889\nxxx_signature_xxx
+```
 
 
