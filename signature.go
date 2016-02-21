@@ -26,7 +26,7 @@ func GetSoleTransferSignatureString(addressID string, shellIDs []string, current
 
 
 // Creates a sole transfer signature. The signature contains the signature string and the signature 
-// concantenated together
+// concantenated together.
 func SignSoleTransfer(addressID, addressPrivKey string, shellIDs []string) (string, error) {
 	var signatureString = GetSoleTransferSignatureString(addressID, shellIDs, time.Now().Unix())
 	signer, err := crypto.ParsePrivateKey([]byte(addressPrivKey))
