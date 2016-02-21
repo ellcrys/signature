@@ -34,7 +34,10 @@ Timestamp + '\n' 					// unix time
 
 ```go
 import "github.com/ellcrys/signature"
-sig := signature.GetSoleTransferSignatureString("42503020", "46577,42654,599902", 1405882889)
+import "fmt"
+
+sig := signature.GetSoleTransferSignatureString("42503020", []string{"46577,42654,599902"}, 1405882889)
+fmt.Println(sig)    // POST\n%2Fv1%2Fseeds%2Ftransfer\n42503020\n46577,42654,599902\n1405882889
 ```
 
 

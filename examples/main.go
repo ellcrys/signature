@@ -10,6 +10,9 @@ var KEYS = []string{
 }
 
 func main() {
-	sig, err := sign.SignSoleTransfer("addr_123", KEYS[0], []string{ "seed_id", "seed_id2", "seed_id3" })
-	fmt.Println(sig, err)
+	// sig,
+	//  err := sign.SignSoleTransfer("addr_123", KEYS[0], []string{ "seed_id", "seed_id2", "seed_id3" })
+	s := sign.GetSoleTransferSignatureString("42503020", []string{"46577,42654,599902"}, 1405882889)
+	// fmt.Println(sig, err)
+	fmt.Println(s)
 }

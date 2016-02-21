@@ -24,6 +24,7 @@ func GetSoleTransferSignatureString(addressID string, shellIDs []string, current
 	return fmt.Sprintf("%s\n%s\n%s\n%s\n%d", "POST", url.QueryEscape(transferEndpoint), addressID, strings.Join(shellIDs, ","), currentUnixTime)
 }
 
+
 // Creates a sole transfer signature. The signature contains the signature string and the signature 
 // concantenated together
 func SignSoleTransfer(addressID, addressPrivKey string, shellIDs []string) (string, error) {
@@ -38,6 +39,7 @@ func SignSoleTransfer(addressID, addressPrivKey string, shellIDs []string) (stri
 	}
 	return (signatureString + "\n" + sig), nil
 }
+
 
 // Given a sole transfer signature, it attempts to parse it. 
 // If everything goes well, a map containing the various signature data is returned.
