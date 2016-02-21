@@ -16,8 +16,8 @@ const transferEndpoint = "/v1/seeds/transfer"
 
 // Construct signature string for sole transfer.
 // 
-// Format: RequestMethod + '\n' + CanonicalEndpointURI + '\n' + AddressID + '\n' + ShellIDs + '\n' + CurrentTime
-// Where:
+// * Format: RequestMethod + '\n' + CanonicalEndpointURI + '\n' + AddressID + '\n' + ShellIDs + '\n' + CurrentTime
+// * Where:
 //   - RequestMethod: POST
 //   - CanonicalEndpointURI: /v1/seed/transfer | Must be URI encoded
 //   - AddressID: Address id (aka signer id)
