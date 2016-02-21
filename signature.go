@@ -16,13 +16,13 @@ const transferEndpoint = "/v1/seeds/transfer"
 
 // Construct signature string for sole transfer.
 // 
-// * Format: RequestMethod + '\n' + CanonicalEndpointURI + '\n' + AddressID + '\n' + ShellIDs + '\n' + CurrentTime
-// * Where:
+// `Format: RequestMethod + '\n' + CanonicalEndpointURI + '\n' + AddressID + '\n' + ShellIDs + '\n' + CurrentTime
+// Where:
 //   - RequestMethod: POST
 //   - CanonicalEndpointURI: /v1/seed/transfer | Must be URI encoded
 //   - AddressID: Address id (aka signer id)
 //   - ShellIDs: Comma separated list of shell id
-//   - CurrentTime: Current unix time
+//   - CurrentTime: Current unix time`
 func GetSoleTransferSignatureString(addressID string, shellIDs []string, currentUnixTime int64) string {
 	return fmt.Sprintf("%s\n%s\n%s\n%s\n%d", "POST", url.QueryEscape(transferEndpoint), addressID, strings.Join(shellIDs, ","), currentUnixTime)
 }
