@@ -3,6 +3,7 @@ package signature
 import (
 	"testing"
 	"time"
+	"strings"
 	// "github.com/ellcrys/seed"
 	"github.com/ellcrys/crypto"
 	"github.com/stretchr/testify/assert"
@@ -29,8 +30,10 @@ func TestSignSoleTransfer(t *testing.T) {
 	assert.Nil(t, err)
 	var sigstring = GetSoleTransferSignatureString("addr_123", []string{ "seed_id", "seed_id2", "seed_id3" }, ts)
 	sig, err := signer.Sign([]byte(sigstring))
+	sigParts := strings.Split(sig, "\n")
+
 	assert.Nil(t, err)
-	assert.Equal(t, sig, expected)
+	assert.Equal(t, (sigstring + "\n" + sigParts[len(sigParts)-1]), expected)
 }
 
 // TestParseSoleTransferSignature tests that correct sole transfer signature will be parsed correctly
