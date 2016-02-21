@@ -25,7 +25,7 @@ associated with an address (aka *signer* or *signatory address*). A valid signat
 
 ```text
 RequestMethod + '\n'   				// request method (use `POST` for transfers)
-URIEncode(*RequestURI*) + '\n'      // encoded request uri
+RequestURI + '\n'      				// URI encoded request uri (uri scheme and host not required)
 AddressID + '\n'			        // address id or signer 
 SeedIDs  + '\n'     		 		// comma separated list of seed ids
 Timestamp + '\n' 					// unix time
@@ -38,7 +38,8 @@ import "github.com/ellcrys/signature"
 import "fmt"
 
 sig := signature.GetSoleTransferSignatureString("42503020", []string{"46577,42654,599902"}, 1405882889)
-fmt.Println(sig)    // POST\n%2Fv1%2Fseeds%2Ftransfer\n42503020\n46577,42654,599902\n1405882889
+fmt.Println(sig)    
+// POST\n%2Fv1%2Fseeds%2Ftransfer\n42503020\n46577,42654,599902\n1405882889
 ```
 
 
