@@ -27,7 +27,7 @@ associated with an address (aka *signer* or *signatory address*). A valid signat
 RequestMethod 	+ '\n'   				// request method (use `POST` for transfers)
 RequestURI 		+ '\n'      			// URI encoded request uri (uri scheme and host not required)
 AddressID 		+ '\n'			        // address id or signer id
-SeedIDs  		+ '\n'     		 		// comma separated list of seed ids
+StoneIDs  		+ '\n'     		 		// comma separated list of seed ids
 Timestamp 		 						// unix time
 ```
 
@@ -40,7 +40,7 @@ header value.
 RequestMethod 	+ '\n'   				// request method (use `POST` for transfers)
 RequestURI 		+ '\n'      			// URI encoded request uri (uri scheme and host not required)
 AddressID 		+ '\n'			        // address id or signer 
-SeedIDs  		+ '\n'     		 		// comma separated list of seed ids
+StoneIDs  		+ '\n'     		 		// comma separated list of seed ids
 Timestamp 		+ '\n' 					// unix time
 Signature     							// signature create from signing the signature string with the signer's private key
 ```
